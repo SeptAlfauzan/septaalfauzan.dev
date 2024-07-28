@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Project{
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  startedAt DateTime
+  finishedAt DateTime
+  published Boolean @default(true)
+  title String
+  desc String
+  images Image[]
+  links Link[]
+}
+
+model Article{
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  published Boolean @default(true)
+  link String
+}
+
+model Experience{
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  startedAt DateTime
+  finishedAt DateTime?
+  position String
+  jobDesc String
+  certificates Certificate[]
+}
+
+
+model Link{
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  url String
+  platform Platforms
+  relatedProject Project @relation(fields: [relatedProjectId], references: [id])
+  relatedProjectId String
+}
+
+model Image{
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  url String
+  project Project @relation(fields: [projectId], references: [id])
+  projectId String
+}
+model Certificate{
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  url String
+  experience Experience @relation(fields: [experienceId], references: [id])
+  experienceId String
+}
+
+enum Platforms{
+  GITHUB
+  PLAYSTORE
+  MEDIUM
+  YOUTUBE
+}
