@@ -9,8 +9,17 @@ import { PrismaClient } from "@prisma/client";
 import { create } from "domain";
 
 export async function GET() {
+  const prismaHelper: PrismaHelper = PrismaHelper.getInstance();
+  const result = await prismaHelper.getPrismaClient().project.findMany({
+    include: {
+      images: true,
+    },
+  });
+
+  console.dir(result, { depth: 2 });
+
   return NextResponse.json({
-    hello: "hello from projects API",
+    data: result,
   });
 }
 
