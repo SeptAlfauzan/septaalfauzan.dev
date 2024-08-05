@@ -6,6 +6,7 @@ import {
   Material,
   Mesh,
   MeshBasicMaterial,
+  MeshStandardMaterial,
   NormalBufferAttributes,
   Object3DEventMap,
   SRGBColorSpace,
@@ -84,9 +85,10 @@ const ThreeDScene = () => {
     texture.flipY = false;
     texture.repeat.set(2, 1);
     texture.offset.set(-0.5, 0);
+    const screenMaterial = mesh.material as MeshStandardMaterial;
 
-    mesh.material.map = texture;
-    mesh.material.needsUpdate = true;
+    screenMaterial.map = texture;
+    screenMaterial.needsUpdate = true;
   };
 
   return (
