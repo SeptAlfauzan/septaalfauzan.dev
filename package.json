@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@gsap/react": "^2.1.1",
     "@prisma/client": "^5.17.0",
     "@react-spring/three": "^9.7.4",
     "@react-three/drei": "^9.109.2",

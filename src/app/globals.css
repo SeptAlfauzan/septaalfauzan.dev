@@ -105,3 +105,44 @@ a {
     color-scheme: dark;
   }
 }
+
+.clipped-image {
+  scale: 1;
+  /* opacity: 0; */
+  animation: draw 2s ease;
+}
+@media (max-width: 480px) {
+  .clipped-image {
+    animation: draw-base 4s ease;
+  }
+}
+
+@keyframes draw {
+  0% {
+    opacity: 0;
+    height: 780px;
+    width: 0px;
+    transform: scaleX(0.1);
+  }
+
+  100% {
+    opacity: 1;
+    height: 780px;
+    width: 583px;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes draw-base {
+  0% {
+    height: 780px;
+    width: 0px;
+    right: -583px;
+  }
+
+  100% {
+    height: 780px;
+    width: 583px;
+    right: 0px;
+  }
+}
