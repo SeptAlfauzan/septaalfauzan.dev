@@ -10,6 +10,7 @@ import {
   NormalBufferAttributes,
   Object3DEventMap,
   SRGBColorSpace,
+  Vector3,
   VideoTexture,
 } from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -19,7 +20,7 @@ function Scene() {
   return (
     <Canvas
       dpr={[1.5, 2]}
-      style={{ height: "100vh", width: "100vw" }}
+      style={{ height: "100%", width: "100%" }}
       camera={{ fov: 50, near: 0.0001, far: 1000, position: [0, 0, 2] }}
     >
       <ambientLight color={"white"} intensity={1} position={[0, 10, 0]} />
@@ -31,8 +32,8 @@ function Scene() {
 
 const ThreeDScene = () => {
   const [active, setActive] = useState(false);
-  const { scale } = useSpring({ scale: active ? 6 : 4 });
-  const { y } = useSpring({ y: active ? -0.5 : 0 });
+  const { scale } = useSpring({ scale: active ? 8 : 6 });
+  const { y } = useSpring({ y: active ? -0.8 : -0.5 });
   const rotation = useSpring({
     y: active ? 0 : -0.8,
     x: active ? 0 : -0.2,

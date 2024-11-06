@@ -106,6 +106,16 @@ a {
   }
 }
 
+.line-guide {
+  top: 94vh;
+  /* left: 50%; */
+  left: 0;
+  align-self: center;
+  position: absolute;
+  stroke-dasharray: 4140;
+  animation: draw-line 10s ease;
+}
+
 .clipped-image {
   scale: 1;
   /* opacity: 0; */
@@ -144,5 +154,18 @@ a {
     height: 780px;
     width: 583px;
     right: 0px;
+  }
+}
+
+@keyframes draw-line {
+  0% {
+    /* stroke-opacity: 0; */
+
+    stroke-dashoffset: 4140;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    /* stroke-opacity: 1; */
   }
 }
