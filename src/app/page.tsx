@@ -26,7 +26,7 @@ import { Box } from "@chakra-ui/react";
 // export const metadata: Metadata = {
 //   title: "Septa Alfauzan - Portfolio",
 // };
-
+export const runtime = "edge";
 export default function Home() {
   return (
     <main>
