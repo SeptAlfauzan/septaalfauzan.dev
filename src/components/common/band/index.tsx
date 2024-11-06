@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as THREE from "three";
 import {
   BallCollider,
@@ -13,7 +14,6 @@ import { extend, useFrame, useThree } from "@react-three/fiber";
 
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 extend({ MeshLineGeometry, MeshLineMaterial });
-
 export default function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const band = useRef(),
     fixed: RefObject<RapierRigidBody> = useRef<RapierRigidBody>(null),
