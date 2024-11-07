@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 // import { promisify } from "util";
 // const pump = promisify(pipeline);
 
-export const runtime = "edge";
 export async function GET() {
   // const prismaHelper: PrismaHelper = PrismaHelper.getInstance();
   // const result = await prismaHelper.getPrismaClient().project.findMany({
